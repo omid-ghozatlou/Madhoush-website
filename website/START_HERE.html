@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبسایت مدهوش - شروع سریع</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazir', 'Tahoma', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 3rem;
+            border: 2px solid #00d9ff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+        }
+
+        h1 {
+            color: #00d9ff;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #ff006e;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        p, li {
+            line-height: 2;
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-right: 1rem;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d9ff, #ff006e);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+        }
+
+        .feature-list {
+            background-color: rgba(0, 217, 255, 0.1);
+            padding: 1.5rem;
+            border-right: 4px solid #00d9ff;
+            margin: 1rem 0;
+        }
+
+        .warning {
+            background-color: rgba(255, 190, 11, 0.1);
+            padding: 1rem;
+            border-right: 4px solid #ffbe0b;
+            margin: 1rem 0;
+        }
+
+        code {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: #00d9ff;
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .ltr-text {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 وبسایت مدهوش</h1>
+
+        <p style="text-align: center; font-size: 1.2rem; color: #00d9ff;">
+            به وبسایت الهام‌گرفته از گوریلاز خوش آمدید!
+        </p>
+
+        <h2><span class="emoji">🚀</span>شروع سریع</h2>
+        <div class="nav-buttons">
+            <a href="index.html" class="btn">🏠 صفحه اصلی</a>
+            <a href="tour.html" class="btn">🎤 تور</a>
+            <a href="store.html" class="btn">🛍️ فروشگاه</a>
+            <a href="about.html" class="btn">ℹ️ درباره ما</a>
+            <a href="media.html" class="btn">🎬 رسانه</a>
+        </div>
+
+        <h2><span class="emoji">✨</span>ویژگی‌های وبسایت</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>صفحه اصلی:</strong> ۴ بنر تمام‌صفحه تعاملی</li>
+                <li><strong>صفحه تور:</strong> تاریخ‌های تور جهانی و بسته‌های VIP</li>
+                <li><strong>صفحه فروشگاه:</strong> موسیقی و محصولات با بسته‌های ویژه</li>
+                <li><strong>صفحه درباره:</strong> داستان گروه، اعضا و دیسکوگرافی</li>
+                <li><strong>صفحه رسانه:</strong> ویدیوها، عکس‌ها و محتوای تعاملی</li>
+            </ul>
+        </div>
+
+        <h2><span class="emoji">🎨</span>عناصر طراحی</h2>
+        <div class="feature-list">
+            <ul>
+                <li>زیبایی‌شناسی تیره و جذاب الهام‌گرفته از گوریلاز</li>
+                <li>افکت‌های اسکرول پارالاکس</li>
+                <li>طراحی ریسپانسیو سازگار با موبایل</li>
+                <li>کارت‌های انیمیشن‌دار و افکت‌های هاور</li>
+                <li>طرح رنگی سفارشی با رنگ‌های نئون</li>
+                <li>انتقالات و تعاملات نرم</li>
+            </ul>
+        </div>
+
+        <h2><span class="emoji">🎯</span>مراحل بعدی</h2>
+        <p>برای شخصی‌سازی وبسایت خود:</p>
+        <ul>
+            <li>تصاویر خود را به پوشه <code>images/</code> اضافه کنید</li>
+            <li>فایل‌های HTML را برای تغییر محتوا ویرایش کنید</li>
+            <li>رنگ‌ها را در <code>styles/main.css</code> تغییر دهید</li>
+            <li>لینک‌های شبکه‌های اجتماعی در فوتر را به‌روزرسانی کنید</li>
+            <li>قیمت‌ها و لینک‌های واقعی محصولات را اضافه کنید</li>
+        </ul>
+
+        <div class="warning">
+            <strong>💡 نکته:</strong> برای بهترین تجربه، از سرور وب محلی استفاده کنید:
+            <br><br>
+            <code class="ltr-text">python3 -m http.server 8000</code>
+            <br><br>
+            سپس بازدید کنید: <code class="ltr-text">http://localhost:8000</code>
+        </div>
+
+        <h2><span class="emoji">🎮</span>تخم مرغ عید پاک</h2>
+        <p>کد کونامی را در هر صفحه امتحان کنید:</p>
+        <p style="text-align: center; font-size: 1.2rem; color: #ffbe0b;" class="ltr-text">
+            ↑ ↑ ↓ ↓ ← → ← → B A
+        </p>
+
+        <h2><span class="emoji">📖</span>مستندات</h2>
+        <p>
+            فایل <strong>README.md</strong> را برای مستندات کامل،
+            راهنمای سفارشی‌سازی و جزئیات فنی بررسی کنید.
+        </p>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="btn" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
+                ورود به وبسایت مدهوش ←
+            </a>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: #666;">
+            ساخته‌شده با HTML5، CSS3 و JavaScript خالص
+        </p>
+    </div>
+</body>
+</html>
