@@ -95,6 +95,76 @@
         <p>&copy; ۱۴۰۳ مدهوش. تمامی حقوق محفوظ است.</p>
     </footer>
 
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="player-container">
+            <!-- Track Info -->
+            <div class="track-info">
+                <div class="album-art" id="albumArt">
+                    <img src="images/Gorbeh.PNG" alt="Album Art">
+                </div>
+                <div class="track-details">
+                    <div class="track-title" id="trackTitle">گربه</div>
+                    <div class="track-artist" id="trackArtist">مدهوش</div>
+                </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button class="control-btn" id="prevBtn" aria-label="قبلی">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-btn" id="playBtn" aria-label="پخش">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn" aria-label="بعدی">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <span class="time" id="currentTime">0:00</span>
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                        <div class="progress-handle" id="progressHandle"></div>
+                    </div>
+                    <span class="time" id="duration">0:00</span>
+                </div>
+            </div>
+
+            <!-- Volume and Playlist -->
+            <div class="player-extras">
+                <button class="control-btn" id="playlistBtn" aria-label="لیست پخش">
+                    <i class="fas fa-list"></i>
+                </button>
+                <div class="volume-control">
+                    <button class="control-btn" id="volumeBtn" aria-label="صدا">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <div class="volume-slider" id="volumeSlider">
+                        <div class="volume-bar">
+                            <div class="volume-fill" id="volumeFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist" id="playlist">
+            <div class="playlist-header">
+                <h3>لیست پخش</h3>
+                <button class="close-playlist" id="closePlaylist">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="playlist-items" id="playlistItems"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="audioPlayer"></audio>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>

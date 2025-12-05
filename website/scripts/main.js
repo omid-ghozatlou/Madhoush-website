@@ -265,4 +265,291 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('🎵 Virtual Band Website Loaded Successfully 🎵');
         console.log('💫 Explore the digital dimension...');
     }
+
+    // ==================== MUSIC PLAYER ====================
+
+    // Playlist data - REPLACE THESE WITH YOUR ACTUAL MUSIC FILES
+    const playlist = [
+        {
+            title: 'گربه',
+            artist: 'مدهوش',
+            albumArt: 'images/Gorbeh.PNG',
+            // Replace this with your actual audio file path
+            src: 'music/Gorbeh.mp3',
+            duration: '4:55'
+        },
+        {
+            title: ' سفینه',
+            artist: 'مدهوش',
+            albumArt: 'images/Safineh_4.PNG',
+            // Replace this with your actual audio file path
+            src: 'music/Safineh.mp3',
+            duration: '4:07'
+        }
+    ];
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+
+    // Get player elements
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progressBar = document.getElementById('progressBar');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
+    const trackTitle = document.getElementById('trackTitle');
+    const trackArtist = document.getElementById('trackArtist');
+    const albumArt = document.getElementById('albumArt');
+    const playlistBtn = document.getElementById('playlistBtn');
+    const playlistEl = document.getElementById('playlist');
+    const closePlaylistBtn = document.getElementById('closePlaylist');
+    const playlistItems = document.getElementById('playlistItems');
+    const volumeBtn = document.getElementById('volumeBtn');
+    const volumeBar = document.querySelector('.volume-bar');
+    const volumeFill = document.getElementById('volumeFill');
+
+    // Check if all elements exist
+    if (!audioPlayer || !playBtn || !playlistBtn) {
+        console.error('Music player elements not found!');
+        return;
+    }
+
+    console.log('Music player initialized with', playlist.length, 'tracks');
+
+    // Initialize player
+    function init() {
+        loadTrack(currentTrackIndex);
+        renderPlaylist();
+    }
+
+    // Load track
+    function loadTrack(index) {
+        const track = playlist[index];
+        console.log('Loading track:', track.title);
+        audioPlayer.src = track.src;
+        audioPlayer.currentTime = 0;  // Reset to start
+        trackTitle.textContent = track.title;
+        trackArtist.textContent = track.artist;
+        albumArt.querySelector('img').src = track.albumArt;
+
+        // Reset progress
+        progress.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+    }
+
+    // Play/Pause
+    function togglePlay() {
+        console.log('Toggle play clicked, isPlaying:', isPlaying);
+        if (isPlaying) {
+            audioPlayer.pause();
+            playBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
+            isPlaying = false;
+        } else {
+            const playPromise = audioPlayer.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        console.log('Playback started successfully');
+                        playBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
+                        isPlaying = true;
+                    })
+                    .catch(error => {
+                        console.error('Playback failed:', error);
+                        alert('خطا در پخش موسیقی. لطفا دوباره تلاش کنید.');
+                    });
+            }
+        }
+    }
+
+    // Previous track
+    function previousTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrackIndex);
+        if (isPlaying) {
+            audioPlayer.play();
+        }
+        updatePlaylistUI();
+    }
+
+    // Next track
+    function nextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+        if (isPlaying) {
+            audioPlayer.play();
+        }
+        updatePlaylistUI();
+    }
+
+    // Update progress bar
+    audioPlayer.addEventListener('timeupdate', () => {
+        if (audioPlayer.duration) {
+            const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progress.style.width = progressPercent + '%';
+
+            // Update current time
+            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+        }
+    });
+
+    // Update duration when metadata loads
+    audioPlayer.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audioPlayer.duration);
+    });
+
+    // Seek functionality
+    progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = clickX / width;
+        audioPlayer.currentTime = percentage * audioPlayer.duration;
+    });
+
+    // Auto play next track
+    audioPlayer.addEventListener('ended', () => {
+        nextTrack();
+    });
+
+    // Volume control
+    volumeBar.addEventListener('click', (e) => {
+        const rect = volumeBar.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = clickX / width;
+        audioPlayer.volume = percentage;
+        volumeFill.style.width = (percentage * 100) + '%';
+
+        // Update volume icon
+        updateVolumeIcon(percentage);
+    });
+
+    // Update volume icon based on level
+    function updateVolumeIcon(volume) {
+        const icon = volumeBtn.querySelector('i');
+        icon.classList.remove('fa-volume-up', 'fa-volume-down', 'fa-volume-mute');
+
+        if (volume === 0) {
+            icon.classList.add('fa-volume-mute');
+        } else if (volume < 0.5) {
+            icon.classList.add('fa-volume-down');
+        } else {
+            icon.classList.add('fa-volume-up');
+        }
+    }
+
+    // Mute/Unmute
+    volumeBtn.addEventListener('click', () => {
+        if (audioPlayer.volume > 0) {
+            audioPlayer.dataset.previousVolume = audioPlayer.volume;
+            audioPlayer.volume = 0;
+            volumeFill.style.width = '0%';
+            updateVolumeIcon(0);
+        } else {
+            const previousVolume = parseFloat(audioPlayer.dataset.previousVolume) || 0.7;
+            audioPlayer.volume = previousVolume;
+            volumeFill.style.width = (previousVolume * 100) + '%';
+            updateVolumeIcon(previousVolume);
+        }
+    });
+
+    // Toggle playlist
+    playlistBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Playlist button clicked');
+        playlistEl.classList.toggle('active');
+        console.log('Playlist active:', playlistEl.classList.contains('active'));
+    });
+
+    closePlaylistBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Close playlist clicked');
+        playlistEl.classList.remove('active');
+    });
+
+    // Render playlist
+    function renderPlaylist() {
+        playlistItems.innerHTML = '';
+
+        playlist.forEach((track, index) => {
+            const item = document.createElement('div');
+            item.className = 'playlist-item' + (index === currentTrackIndex ? ' active' : '');
+            item.innerHTML = `
+                <div class="playlist-item-art">
+                    <img src="${track.albumArt}" alt="${track.title}">
+                </div>
+                <div class="playlist-item-info">
+                    <div class="playlist-item-title">${track.title}</div>
+                    <div class="playlist-item-artist">${track.artist}</div>
+                </div>
+                <div class="playlist-item-duration">${track.duration}</div>
+            `;
+
+            item.addEventListener('click', () => {
+                currentTrackIndex = index;
+                loadTrack(currentTrackIndex);
+                if (isPlaying) {
+                    audioPlayer.play();
+                } else {
+                    togglePlay();
+                }
+                updatePlaylistUI();
+            });
+
+            playlistItems.appendChild(item);
+        });
+    }
+
+    // Update playlist UI
+    function updatePlaylistUI() {
+        const items = playlistItems.querySelectorAll('.playlist-item');
+        items.forEach((item, index) => {
+            if (index === currentTrackIndex) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Format time (seconds to mm:ss)
+    function formatTime(seconds) {
+        if (isNaN(seconds)) return '0:00';
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Event listeners
+    console.log('Adding event listeners...');
+    playBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Play button clicked!');
+        togglePlay();
+    });
+    prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Previous button clicked!');
+        previousTrack();
+    });
+    nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Next button clicked!');
+        nextTrack();
+    });
+
+    // Initialize
+    console.log('Initializing player...');
+    init();
+
+    // Log player initialization
+    if (isRTL) {
+        console.log('🎧 پخش‌کننده موسیقی آماده است!');
+    } else {
+        console.log('🎧 Music player initialized!');
+    }
+    console.log('Playlist loaded:', playlist);
 });
