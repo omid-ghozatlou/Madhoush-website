@@ -273,17 +273,17 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: 'گربه',
             artist: 'مدهوش',
-            albumArt: 'images/Gorbeh.PNG',
+            albumArt: '/images/Gorbeh.PNG',
             // Replace this with your actual audio file path
-            src: 'music/Gorbeh.mp3',
+            src: '/music/Gorbeh.mp3',
             duration: '4:55'
         },
         {
             title: ' سفینه',
             artist: 'مدهوش',
-            albumArt: 'images/Safineh_4.PNG',
+            albumArt: '/images/Safineh_4.PNG',
             // Replace this with your actual audio file path
-            src: 'music/Safineh.mp3',
+            src: '/music/Safineh.mp3',
             duration: '4:07'
         }
     ];
