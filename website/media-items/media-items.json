@@ -1,0 +1,5 @@
+{
+  "layout": "media-item.njk",
+  "permalink": "/media/{{ page.fileSlug }}/",
+  "tags": "mediaItems"
+}

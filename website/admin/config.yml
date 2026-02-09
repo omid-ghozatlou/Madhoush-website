@@ -26,3 +26,87 @@ collections:
       - { label: "تصویر", name: "thumbnail", widget: "image", required: false, hint: "ابعاد پیشنهادی: ۱۲۰۰×۶۳۰ پیکسل" }
       - { label: "خلاصه", name: "description", widget: "text", hint: "خلاصه‌ای ۲-۳ خطی که در لیست مقالات نمایش داده می‌شود" }
       - { label: "متن", name: "body", widget: "markdown" }
+
+  - name: "store-items"
+    label: "فروشگاه"
+    folder: "website/store-items"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "عنوان کتاب", name: "title", widget: "string" }
+      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "تصویر جلد", name: "thumbnail", widget: "image", required: false }
+      - { label: "قیمت", name: "price", widget: "string" }
+      - { label: "نویسنده کتاب", name: "book_author", widget: "string", required: false }
+      - { label: "لینک خرید", name: "buy_link", widget: "string", required: false }
+      - { label: "خلاصه", name: "description", widget: "text" }
+      - { label: "معرفی کتاب", name: "body", widget: "markdown" }
+
+  - name: "madmag"
+    label: "مدمگ"
+    folder: "website/madmag"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "شماره", name: "issue_number", widget: "string", required: false }
+      - { label: "نویسنده", name: "author", widget: "string", default: "مدهوش" }
+      - { label: "تصویر", name: "thumbnail", widget: "image", required: false }
+      - { label: "خلاصه", name: "description", widget: "text" }
+      - { label: "متن", name: "body", widget: "markdown" }
+
+  - name: "archive-items"
+    label: "آرشیو"
+    folder: "website/archive-items"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "تصویر کاور", name: "thumbnail", widget: "image", required: false }
+      - { label: "خلاصه", name: "description", widget: "text" }
+      - { label: "لینک اسپاتیفای", name: "spotify_url", widget: "string", required: false }
+      - { label: "لینک اپل موزیک", name: "apple_music_url", widget: "string", required: false }
+      - { label: "لینک یوتیوب", name: "youtube_url", widget: "string", required: false }
+      - { label: "لینک ساندکلاود", name: "soundcloud_url", widget: "string", required: false }
+      - { label: "متن", name: "body", widget: "markdown" }
+
+  - name: "media-items"
+    label: "بیگ مد"
+    folder: "website/media-items"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "تصویر", name: "thumbnail", widget: "image", required: false }
+      - { label: "خلاصه", name: "description", widget: "text" }
+      - label: "نوع"
+        name: "type"
+        widget: "select"
+        options: ["ویدیو", "عکس"]
+      - { label: "لینک ویدیو", name: "video_url", widget: "string", required: false }
+      - { label: "متن", name: "body", widget: "markdown", required: false }
+
+  - name: "members"
+    label: "اعضا"
+    folder: "website/members"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "نام", name: "name", widget: "string" }
+      - { label: "کد", name: "code_name", widget: "string" }
+      - { label: "نقش", name: "role", widget: "string" }
+      - { label: "توضیحات", name: "description", widget: "text" }
+      - label: "رنگ"
+        name: "accent_color"
+        widget: "select"
+        required: false
+        options: ["cyan", "pink", "yellow", "gradient"]
+      - { label: "ترتیب", name: "order", widget: "number" }

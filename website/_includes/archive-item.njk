@@ -1,0 +1,44 @@
+---
+layout: base.njk
+---
+
+<!-- Archive Item Hero -->
+<section class="banner banner-1" style="height: 50vh; position: relative;">
+    {% if thumbnail %}
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+        <img src="{{ thumbnail }}" alt="{{ title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+    </div>
+    {% endif %}
+    <div class="banner-content fade-in" style="position: relative; z-index: 10;">
+        <h1 style="font-size: 3rem;">{{ title }}</h1>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">{{ date | persianDate }}</p>
+    </div>
+</section>
+
+<!-- Archive Item Body -->
+<section class="content-section" style="max-width: 800px; margin: 0 auto; padding: 3rem 2rem;">
+    {% if thumbnail %}
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <img src="{{ thumbnail }}" alt="{{ title }}" loading="lazy" style="max-width: 500px; width: 100%; box-shadow: 0 25px 70px rgba(255, 215, 0, 0.3);">
+    </div>
+    {% endif %}
+
+    {% if spotify_url or apple_music_url or youtube_url or soundcloud_url %}
+    <div class="platform-links" style="width: fit-content; margin: 0 auto 2rem;">
+        {% if spotify_url %}<a href="{{ spotify_url }}" target="_blank" class="platform-icon" aria-label="اسپاتیفای"><i class="fab fa-spotify"></i></a>{% endif %}
+        {% if apple_music_url %}<a href="{{ apple_music_url }}" target="_blank" class="platform-icon" aria-label="اپل موزیک"><i class="fab fa-apple"></i></a>{% endif %}
+        {% if youtube_url %}<a href="{{ youtube_url }}" target="_blank" class="platform-icon" aria-label="یوتیوب"><i class="fab fa-youtube"></i></a>{% endif %}
+        {% if soundcloud_url %}<a href="{{ soundcloud_url }}" target="_blank" class="platform-icon" aria-label="ساندکلاود"><i class="fab fa-soundcloud"></i></a>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="article-body">
+        {{ content | safe }}
+    </div>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <a href="/archive/" class="banner-btn" style="display: inline-block;">
+            بازگشت به آرشیو →
+        </a>
+    </div>
+</section>

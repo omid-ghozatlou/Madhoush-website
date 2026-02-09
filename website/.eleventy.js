@@ -21,6 +21,41 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Store items collection
+  eleventyConfig.addCollection("storeItems", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("store-items/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
+  // Madmag collection
+  eleventyConfig.addCollection("madmag", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("madmag/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
+  // Archive items collection
+  eleventyConfig.addCollection("archiveItems", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("archive-items/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
+  // Media items collection
+  eleventyConfig.addCollection("mediaItems", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("media-items/*.md").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
+  // Members collection, sorted by order
+  eleventyConfig.addCollection("members", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("members/*.md").sort((a, b) => {
+      return (a.data.order || 0) - (b.data.order || 0);
+    });
+  });
+
   // Persian date filter
   eleventyConfig.addFilter("persianDate", function(date) {
     if (!date) return "";

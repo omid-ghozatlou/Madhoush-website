@@ -1,0 +1,5 @@
+{
+  "layout": "store-item.njk",
+  "permalink": "/store/{{ page.fileSlug }}/",
+  "tags": "storeItems"
+}

@@ -1,0 +1,5 @@
+{
+  "layout": "madmag-item.njk",
+  "permalink": "/madmag/{{ page.fileSlug }}/",
+  "tags": "madmag"
+}

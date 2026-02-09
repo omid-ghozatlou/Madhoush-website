@@ -1,0 +1,38 @@
+---
+layout: base.njk
+---
+
+<!-- Madmag Hero -->
+<section class="banner banner-2" style="height: 50vh; position: relative;">
+    {% if thumbnail %}
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+        <img src="{{ thumbnail }}" alt="{{ title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+    </div>
+    {% endif %}
+    <div class="banner-content fade-in" style="position: relative; z-index: 10;">
+        {% if issue_number %}
+        <p style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 0.5rem;">{{ issue_number }}</p>
+        {% endif %}
+        <h1 style="font-size: 3rem;">{{ title }}</h1>
+        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem; flex-wrap: wrap;">
+            <span style="color: var(--accent-color);">{{ author }}</span>
+            <span style="color: var(--text-secondary);">|</span>
+            <span style="color: var(--text-secondary);">{{ date | persianDate }}</span>
+            <span style="color: var(--text-secondary);">|</span>
+            <span style="color: var(--text-secondary);"><i class="fas fa-clock" style="margin-right: 0.3rem;"></i>{{ content | readingTime }}</span>
+        </div>
+    </div>
+</section>
+
+<!-- Madmag Body -->
+<section class="content-section" style="max-width: 800px; margin: 0 auto; padding: 3rem 2rem;">
+    <div class="article-body">
+        {{ content | safe }}
+    </div>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <a href="/madmag/" class="banner-btn" style="display: inline-block;">
+            بازگشت به مدمگ →
+        </a>
+    </div>
+</section>
