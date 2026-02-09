@@ -11,13 +11,16 @@ layout: base.njk
     {% endif %}
     <div class="banner-content fade-in" style="position: relative; z-index: 10;">
         <h1 style="font-size: 3rem;">{{ title }}</h1>
-        <p style="font-size: 1rem; color: var(--text-secondary); margin-top: 1rem;">
-            <span>{{ author }}</span>
-            &nbsp;|&nbsp;
-            <span>{{ date | persianDate }}</span>
-            &nbsp;|&nbsp;
-            <span>{{ content | readingTime }}</span>
-        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem; flex-wrap: wrap;">
+            <span style="color: var(--accent-color);">{{ author }}</span>
+            <span style="color: var(--text-secondary);">|</span>
+            <span style="color: var(--text-secondary);">{{ date | persianDate }}</span>
+            <span style="color: var(--text-secondary);">|</span>
+            <span style="color: var(--text-secondary);"><i class="fas fa-clock" style="margin-left: 0.3rem;"></i>{{ content | readingTime }}</span>
+        </div>
+        {% if description %}
+        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 1.5rem; max-width: 600px; margin-right: auto; margin-left: auto;">{{ description }}</p>
+        {% endif %}
     </div>
 </section>
 
@@ -27,9 +30,10 @@ layout: base.njk
         {{ content | safe }}
     </div>
 
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+    <!-- Share & Back -->
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <a href="/articles/" class="banner-btn" style="display: inline-block;">
-            → بازگشت به مقالات
+            ← بازگشت به مقالات
         </a>
     </div>
 </section>

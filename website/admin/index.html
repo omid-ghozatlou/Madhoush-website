@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مدیریت محتوا - مدهوش</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>مدیریت محتوا - مدهوش</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* RTL support for CMS editor */
+      [data-slate-editor] {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+        line-height: 2 !important;
+      }
+      /* RTL for preview pane */
+      .frame-content {
+        direction: rtl !important;
+        text-align: right !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      // Register RTL preview style for article pages
+      CMS.registerPreviewStyle(
+        'https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css',
+      );
+      CMS.registerPreviewStyle(`
+        html, body {
+          direction: rtl;
+          text-align: right;
+          font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+          line-height: 2;
+          background: #1a0f0f;
+          color: #ffffff;
+          padding: 2rem;
+        }
+        h1, h2, h3 { color: #00d9ff; }
+        a { color: #00d9ff; }
+        blockquote {
+          border-right: 4px solid #00d9ff;
+          padding: 1rem 1.5rem;
+          margin: 1rem 0;
+          background: rgba(0, 217, 255, 0.05);
+        }
+        img { max-width: 100%; border-radius: 8px; }
+        ul, ol { padding-right: 2rem; }
+      `, {raw: true});
+    </script>
+  </body>
 </html>
