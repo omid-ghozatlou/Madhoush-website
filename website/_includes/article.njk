@@ -6,7 +6,7 @@ layout: base.njk
 <section class="banner banner-1" style="height: 50vh; position: relative;">
     {% if thumbnail %}
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
-        <img src="{{ thumbnail }}" alt="{{ title }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+        <img src="{{ thumbnail }}" alt="{{ title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
     </div>
     {% endif %}
     <div class="banner-content fade-in" style="position: relative; z-index: 10;">
@@ -16,7 +16,7 @@ layout: base.njk
             <span style="color: var(--text-secondary);">|</span>
             <span style="color: var(--text-secondary);">{{ date | persianDate }}</span>
             <span style="color: var(--text-secondary);">|</span>
-            <span style="color: var(--text-secondary);"><i class="fas fa-clock" style="margin-left: 0.3rem;"></i>{{ content | readingTime }}</span>
+            <span style="color: var(--text-secondary);"><i class="fas fa-clock" style="margin-right: 0.3rem;"></i>{{ content | readingTime }}</span>
         </div>
         {% if description %}
         <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 1.5rem; max-width: 600px; margin-right: auto; margin-left: auto;">{{ description }}</p>
@@ -33,7 +33,41 @@ layout: base.njk
     <!-- Share & Back -->
     <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <a href="/articles/" class="banner-btn" style="display: inline-block;">
-            ← بازگشت به مقالات
+            بازگشت به مقالات →
         </a>
+        <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">اشتراک‌گذاری:</span>
+            <a href="https://t.me/share/url?url={{ page.url | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener noreferrer" style="color: #29b6f6; font-size: 1.3rem; transition: opacity 0.2s;" aria-label="اشتراک در تلگرام"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://twitter.com/intent/tweet?url={{ page.url | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener noreferrer" style="color: #1da1f2; font-size: 1.3rem; transition: opacity 0.2s;" aria-label="اشتراک در توییتر"><i class="fab fa-twitter"></i></a>
+            <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.innerHTML='<i class=\'fas fa-check\'></i>';setTimeout(()=>{this.innerHTML='<i class=\'fas fa-link\'></i>'},2000)})" style="background: none; border: none; color: var(--accent-color); font-size: 1.3rem; cursor: pointer; padding: 0; transition: opacity 0.2s;" aria-label="کپی لینک"><i class="fas fa-link"></i></button>
+        </div>
     </div>
 </section>
+
+<!-- Related Articles -->
+{% if collections.articles.length > 1 %}
+<section class="content-section" style="max-width: 800px; margin: 0 auto; padding: 0 2rem 3rem;">
+    <h2 style="color: var(--accent-color); font-size: 1.6rem; margin-bottom: 1.5rem;">مقالات دیگر</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem;">
+        {% set shown = 0 %}
+        {% for article in collections.articles %}
+        {% if article.url !== page.url and shown < 3 %}
+        {% set shown = shown + 1 %}
+        <a href="{{ article.url }}" class="article-card fade-in" style="text-decoration: none; color: inherit;">
+            <div class="article-card-image" style="height: 140px;">
+                {% if article.data.thumbnail %}
+                <img src="{{ article.data.thumbnail }}" alt="{{ article.data.title }}" loading="lazy">
+                {% else %}
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; font-size: 2rem;">📝</div>
+                {% endif %}
+            </div>
+            <div class="article-card-content" style="padding: 1rem;">
+                <h3 style="font-size: 1rem; margin-bottom: 0.4rem;">{{ article.data.title }}</h3>
+                <span style="font-size: 0.8rem; color: var(--text-secondary);">{{ article.data.date | persianDate }}</span>
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

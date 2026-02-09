@@ -8,7 +8,7 @@ permalink: /articles/
 <section class="banner banner-1" style="height: 50vh;">
     <div class="banner-content fade-in">
         <h1>مقالات</h1>
-        <p>نوشته‌ها و داستان‌های مدهوش</p>
+        <p>نوشته‌ها و داستان‌های مدهوش — {{ collections.articles.length | persianDigits }} مقاله</p>
     </div>
 </section>
 
@@ -19,12 +19,15 @@ permalink: /articles/
         <a href="{{ article.url }}" class="article-card fade-in" style="text-decoration: none; color: inherit;">
             <div class="article-card-image">
                 {% if article.data.thumbnail %}
-                <img src="{{ article.data.thumbnail }}" alt="{{ article.data.title }}">
+                <img src="{{ article.data.thumbnail }}" alt="{{ article.data.title }}" loading="lazy">
                 {% else %}
                 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; font-size: 3rem;">📝</div>
                 {% endif %}
             </div>
             <div class="article-card-content">
+                {% if article.data.category %}
+                <span class="article-card-category">{{ article.data.category }}</span>
+                {% endif %}
                 <h3>{{ article.data.title }}</h3>
                 <div class="article-card-meta">
                     <span>{{ article.data.date | persianDate }}</span>

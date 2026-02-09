@@ -18,6 +18,11 @@ collections:
       - { label: "عنوان", name: "title", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
       - { label: "نویسنده", name: "author", widget: "string", default: "مدهوش" }
-      - { label: "تصویر", name: "thumbnail", widget: "image", required: false }
-      - { label: "خلاصه", name: "description", widget: "text" }
+      - label: "دسته‌بندی"
+        name: "category"
+        widget: "select"
+        required: false
+        options: ["پشت صحنه", "اخبار", "داستان آهنگ", "گفتگو"]
+      - { label: "تصویر", name: "thumbnail", widget: "image", required: false, hint: "ابعاد پیشنهادی: ۱۲۰۰×۶۳۰ پیکسل" }
+      - { label: "خلاصه", name: "description", widget: "text", hint: "خلاصه‌ای ۲-۳ خطی که در لیست مقالات نمایش داده می‌شود" }
       - { label: "متن", name: "body", widget: "markdown" }

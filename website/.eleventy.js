@@ -32,6 +32,13 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Persian digits filter
+  eleventyConfig.addFilter("persianDigits", function(value) {
+    if (value === undefined || value === null) return "";
+    const digits = ["۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"];
+    return String(value).replace(/\d/g, d => digits[d]);
+  });
+
   // Reading time filter (for Persian text)
   eleventyConfig.addFilter("readingTime", function(content) {
     if (!content) return "۱ دقیقه";
