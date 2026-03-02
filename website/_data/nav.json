@@ -1,10 +1,29 @@
 {
   "items": [
-    { "label": "مدمگ",      "url": "/madmag/",   "order": 1 },
-    { "label": "مد استور",  "url": "/store/",    "order": 2 },
-    { "label": "مقالات",    "url": "/articles/", "order": 3 },
-    { "label": "آرشیو",     "url": "/archive/",  "order": 4 },
-    { "label": "بیگ مد",    "url": "/media/",    "order": 5 },
-    { "label": "داستان ما", "url": "/about/",    "order": 6 }
+    {
+      "label": "مدمگ",
+      "url": "/madmag/",
+      "order": 1
+    },
+    {
+      "label": "مد استور",
+      "url": "/store/",
+      "order": 2
+    },
+    {
+      "label": "آرشیو",
+      "url": "/archive/",
+      "order": 4
+    },
+    {
+      "label": "بیگ مد",
+      "url": "/media/",
+      "order": 5
+    },
+    {
+      "label": "داستان ما",
+      "url": "/about/",
+      "order": 6
+    }
   ]
 }
