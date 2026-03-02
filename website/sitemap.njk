@@ -1,0 +1,66 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ settings.site_url }}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/articles/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/madmag/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/archive/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/store/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>{{ settings.site_url }}/media/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% for item in collections.articles %}
+  <url>
+    <loc>{{ settings.site_url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | dateToISO }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endfor %}
+  {% for item in collections.madmag %}
+  <url>
+    <loc>{{ settings.site_url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | dateToISO }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {% endfor %}
+  {% for item in collections.archiveItems %}
+  <url>
+    <loc>{{ settings.site_url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | dateToISO }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% endfor %}
+</urlset>

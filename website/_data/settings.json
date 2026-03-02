@@ -1,5 +1,8 @@
 {
   "site_title": "مدهوش",
+  "site_url": "https://madhoush.com",
+  "default_description": "مدهوش — گروه موسیقی مستقل ایرانی. آهنگ‌های جدید، مدمگ، و داستان گروه.",
+  "default_image": "/images/Gorbeh.PNG",
   "social": {
     "instagram": "https://www.instagram.com/madhoush.official",
     "telegram": "https://t.me/madhoush_official/16",

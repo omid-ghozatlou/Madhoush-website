@@ -3,15 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - مدهوش</title>
-    {% if description %}
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:type" content="article">
+
+    {% set _title = title + " — " + settings.site_title if title else settings.site_title %}
+    {% set _desc = description if description else settings.default_description %}
+    {% set _image = thumbnail if thumbnail else settings.default_image %}
+    {% set _url = settings.site_url + page.url %}
+
+    <title>{{ _title }}</title>
+    <meta name="description" content="{{ _desc }}">
+    {% if author %}<meta name="author" content="{{ author }}">{% endif %}
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ _url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="{{ settings.site_title }}">
+    <meta property="og:title" content="{{ _title }}">
+    <meta property="og:description" content="{{ _desc }}">
+    <meta property="og:url" content="{{ _url }}">
+    <meta property="og:image" content="{{ settings.site_url }}{{ _image }}">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="{{ 'article' if date else 'website' }}">
+    {% if date %}
+    <meta property="article:published_time" content="{{ date | dateToISO }}">
     {% endif %}
-    {% if thumbnail %}
-    <meta property="og:image" content="{{ thumbnail }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ _title }}">
+    <meta name="twitter:description" content="{{ _desc }}">
+    <meta name="twitter:image" content="{{ settings.site_url }}{{ _image }}">
+
+    <!-- JSON-LD structured data -->
+    {% if date %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {{ title | dump | safe }},
+      "description": {{ _desc | dump | safe }},
+      "image": "{{ settings.site_url }}{{ _image }}",
+      "datePublished": "{{ date | dateToISO }}",
+      "author": { "@type": "Person", "name": {{ (author or settings.site_title) | dump | safe }} },
+      "publisher": {
+        "@type": "MusicGroup",
+        "name": "{{ settings.site_title }}",
+        "url": "{{ settings.site_url }}"
+      },
+      "url": "{{ _url }}"
+    }
+    </script>
+    {% else %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "{{ settings.site_title }}",
+      "url": "{{ settings.site_url }}",
+      "description": {{ _desc | dump | safe }},
+      "sameAs": [
+        {% if settings.social.instagram %}"{{ settings.social.instagram }}"{% if settings.social.spotify %},{% endif %}{% endif %}
+        {% if settings.social.spotify %}"{{ settings.social.spotify }}"{% if settings.social.youtube %},{% endif %}{% endif %}
+        {% if settings.social.youtube %}"{{ settings.social.youtube }}"{% endif %}
+      ]
+    }
+    </script>
     {% endif %}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/styles/main.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

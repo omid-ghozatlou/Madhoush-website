@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images/uploads");
   eleventyConfig.addPassthroughCopy("music");
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   // Pass through existing HTML files unchanged
   eleventyConfig.addPassthroughCopy("*.html");
@@ -69,6 +70,12 @@ module.exports = function(eleventyConfig) {
     return api.getFilteredByGlob("custom-pages/*.md").sort((a, b) =>
       (a.data.title || "").localeCompare(b.data.title || "")
     );
+  });
+
+  // ISO date filter (for SEO/structured data)
+  eleventyConfig.addFilter("dateToISO", function(date) {
+    if (!date) return "";
+    return new Date(date).toISOString();
   });
 
   // Persian date filter
