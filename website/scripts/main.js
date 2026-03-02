@@ -369,29 +369,99 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePlaylistUI();
     }
 
-    // Update progress bar
-    audioPlayer.addEventListener('timeupdate', () => {
-        if (audioPlayer.duration) {
-            const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-            progress.style.width = progressPercent + '%';
+    // Safe duration helper — guards against Infinity/NaN (local dev server issue)
+    function getDuration() {
+        const d = audioPlayer.duration;
+        if (d && isFinite(d)) return d;
+        // Fallback: use seekable range if available (some browsers provide this even when duration is Infinity)
+        if (audioPlayer.seekable && audioPlayer.seekable.length > 0) {
+            const end = audioPlayer.seekable.end(audioPlayer.seekable.length - 1);
+            if (isFinite(end) && end > 0) return end;
+        }
+        return null;
+    }
 
-            // Update current time
-            currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+    // Update progress bar (skip visual update while user is dragging)
+    audioPlayer.addEventListener('timeupdate', () => {
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+        if (isSeeking) return;
+        const duration = getDuration();
+        if (duration) {
+            progress.style.width = (audioPlayer.currentTime / duration * 100) + '%';
+            durationEl.textContent = formatTime(duration);
         }
     });
 
     // Update duration when metadata loads
     audioPlayer.addEventListener('loadedmetadata', () => {
-        durationEl.textContent = formatTime(audioPlayer.duration);
+        const duration = getDuration();
+        if (duration) durationEl.textContent = formatTime(duration);
     });
 
-    // Seek functionality
-    progressBar.addEventListener('click', (e) => {
+    audioPlayer.addEventListener('durationchange', () => {
+        const duration = getDuration();
+        if (duration) durationEl.textContent = formatTime(duration);
+    });
+
+    // Seek functionality — mouse drag + iPhone touch
+    let isSeeking = false;
+
+    function seek(clientX) {
+        const duration = getDuration();
+        if (!duration) return;  // can't seek if duration unknown (Infinity)
         const rect = progressBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const width = rect.width;
-        const percentage = clickX / width;
-        audioPlayer.currentTime = percentage * audioPlayer.duration;
+        const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+        const percent = x / rect.width;
+        progress.style.width = (percent * 100) + '%';
+        audioPlayer.currentTime = percent * duration;
+    }
+
+    // ---- Mouse drag ----
+    const musicPlayer = document.getElementById('musicPlayer');
+
+    progressBar.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // prevent text selection killing the drag
+        isSeeking = true;
+        progressBar.classList.add('dragging');
+        musicPlayer.classList.add('no-select');
+        progress.style.transition = 'none';
+        seek(e.clientX);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isSeeking) return;
+        seek(e.clientX);
+    });
+
+    document.addEventListener('mouseup', (e) => {
+        if (!isSeeking) return;
+        isSeeking = false;
+        progressBar.classList.remove('dragging');
+        musicPlayer.classList.remove('no-select');
+        progress.style.transition = '';
+    });
+
+    // ---- Touch (iPhone / Android) ----
+    progressBar.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isSeeking = true;
+        progressBar.classList.add('dragging');
+        progress.style.transition = 'none';
+        seek(e.touches[0].clientX);
+    }, { passive: false });
+
+    progressBar.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        if (!isSeeking) return;
+        seek(e.touches[0].clientX);
+    }, { passive: false });
+
+    progressBar.addEventListener('touchend', (e) => {
+        if (!isSeeking) return;
+        isSeeking = false;
+        progressBar.classList.remove('dragging');
+        progress.style.transition = '';
+        if (e.changedTouches.length) seek(e.changedTouches[0].clientX);
     });
 
     // Auto play next track
@@ -502,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Format time (seconds to mm:ss)
     function formatTime(seconds) {
-        if (isNaN(seconds)) return '0:00';
+        if (!seconds || !isFinite(seconds) || isNaN(seconds)) return '0:00';
         const minutes = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${minutes}:${secs.toString().padStart(2, '0')}`;

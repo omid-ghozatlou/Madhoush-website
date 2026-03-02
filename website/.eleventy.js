@@ -99,6 +99,13 @@ module.exports = function(eleventyConfig) {
     return persianMinutes + " دقیقه";
   });
 
+  // Dev server: enable byte-range support so audio duration/seeking works locally
+  eleventyConfig.setServerOptions({
+    headers: {
+      "Accept-Ranges": "bytes"
+    }
+  });
+
   return {
     dir: {
       input: ".",
