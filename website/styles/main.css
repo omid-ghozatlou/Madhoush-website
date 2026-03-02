@@ -1421,3 +1421,6 @@ footer p {
     padding: 0.8rem 1rem;
   }
 }
+
+/* About story rendered from markdown */
+.about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }

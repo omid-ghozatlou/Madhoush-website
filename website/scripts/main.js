@@ -268,25 +268,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ==================== MUSIC PLAYER ====================
 
-    // Playlist data - REPLACE THESE WITH YOUR ACTUAL MUSIC FILES
-    const playlist = [
-        {
-            title: 'گربه',
-            artist: 'مدهوش',
-            albumArt: '/images/Gorbeh.PNG',
-            // Replace this with your actual audio file path
-            src: '/music/Gorbeh.mp3',
-            duration: '4:55'
-        },
-        {
-            title: ' سفینه',
-            artist: 'مدهوش',
-            albumArt: '/images/Safineh_4.PNG',
-            // Replace this with your actual audio file path
-            src: '/music/Safineh.mp3',
-            duration: '4:07'
-        }
-    ];
+    // Playlist data injected from playlist.json via window.PLAYLIST
+    const playlist = (window.PLAYLIST || []).map(function(t) {
+        return { title: t.title, artist: t.artist, albumArt: t.album_art, src: t.src, duration: t.duration };
+    });
 
     let currentTrackIndex = 0;
     let isPlaying = false;

@@ -1,0 +1,6 @@
+{
+  "tracks": [
+    { "title": "گربه",  "artist": "مدهوش", "album_art": "/images/Gorbeh.PNG",    "src": "/music/Gorbeh.mp3",   "duration": "4:55" },
+    { "title": "سفینه", "artist": "مدهوش", "album_art": "/images/Safineh_4.PNG", "src": "/music/Safineh.mp3",  "duration": "4:07" }
+  ]
+}

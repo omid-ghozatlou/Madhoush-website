@@ -110,3 +110,170 @@ collections:
         required: false
         options: ["cyan", "pink", "yellow", "gradient"]
       - { label: "ترتیب", name: "order", widget: "number" }
+
+  - name: "site-settings"
+    label: "تنظیمات سایت"
+    files:
+      - name: "general"
+        label: "تنظیمات کلی"
+        file: "website/_data/settings.json"
+        fields:
+          - { label: "عنوان سایت", name: "site_title", widget: "string" }
+          - label: "شبکه‌های اجتماعی"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "اینستاگرام", name: "instagram", widget: "string", required: false }
+              - { label: "تلگرام", name: "telegram", widget: "string", required: false }
+              - { label: "توییتر", name: "twitter", widget: "string", required: false }
+              - { label: "فیسبوک", name: "facebook", widget: "string", required: false }
+              - { label: "یوتیوب", name: "youtube", widget: "string", required: false }
+              - { label: "اسپاتیفای", name: "spotify", widget: "string", required: false }
+              - { label: "ساندکلاود", name: "soundcloud", widget: "string", required: false }
+          - { label: "متن کپی‌رایت فوتر", name: "footer_copyright", widget: "string" }
+
+      - name: "navigation"
+        label: "منوی ناوبری"
+        file: "website/_data/nav.json"
+        fields:
+          - label: "آیتم‌های منو"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "برچسب", name: "label", widget: "string" }
+              - { label: "آدرس", name: "url", widget: "string" }
+              - { label: "ترتیب", name: "order", widget: "number" }
+
+      - name: "playlist"
+        label: "لیست پخش موسیقی"
+        file: "website/_data/playlist.json"
+        fields:
+          - label: "آهنگ‌ها"
+            name: "tracks"
+            widget: "list"
+            fields:
+              - { label: "عنوان آهنگ", name: "title", widget: "string" }
+              - { label: "هنرمند", name: "artist", widget: "string" }
+              - { label: "تصویر آلبوم", name: "album_art", widget: "image", required: false }
+              - label: "فایل موسیقی"
+                name: "src"
+                widget: "file"
+                media_folder: "website/music"
+                public_folder: "/music"
+                required: false
+              - { label: "مدت زمان", name: "duration", widget: "string", hint: "مثال: 4:55" }
+
+      - name: "page-titles"
+        label: "عنوان صفحات"
+        file: "website/_data/page_titles.json"
+        fields:
+          - label: "مدمگ"
+            name: "madmag"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+          - label: "مقالات"
+            name: "articles"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+          - label: "فروشگاه"
+            name: "store"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+          - label: "آرشیو"
+            name: "archive"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+          - label: "بیگ مد"
+            name: "media"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+          - label: "داستان ما"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+
+      - name: "about-story"
+        label: "داستان گروه"
+        file: "website/_data/about.json"
+        fields:
+          - { label: "عنوان هیرو", name: "hero_title", widget: "string" }
+          - { label: "زیرعنوان هیرو", name: "hero_subtitle", widget: "string" }
+          - { label: "داستان گروه", name: "story", widget: "markdown" }
+
+      - name: "homepage"
+        label: "صفحه اصلی"
+        file: "website/_data/homepage.json"
+        fields:
+          - label: "بنر ۱ (آلبوم جدید)"
+            name: "banner1"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+              - { label: "تصویر آلبوم", name: "album_image", widget: "image", required: false }
+              - { label: "متن جایگزین تصویر", name: "album_image_alt", widget: "string", required: false }
+              - { label: "متن دعوت به شنیدن", name: "listen_label", widget: "string" }
+              - label: "لینک‌ها"
+                name: "links"
+                widget: "object"
+                fields:
+                  - { label: "اسپاتیفای", name: "spotify", widget: "string", required: false }
+                  - { label: "اپل موزیک", name: "apple_music", widget: "string", required: false }
+                  - { label: "یوتیوب", name: "youtube", widget: "string", required: false }
+                  - { label: "ساندکلاود", name: "soundcloud", widget: "string", required: false }
+                  - { label: "اینستاگرام", name: "instagram", widget: "string", required: false }
+          - label: "بنر ۲"
+            name: "banner2"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+              - { label: "متن دکمه", name: "button_text", widget: "string" }
+              - { label: "لینک دکمه", name: "button_url", widget: "string" }
+          - label: "بنر ۳"
+            name: "banner3"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+              - { label: "متن دکمه", name: "button_text", widget: "string" }
+              - { label: "لینک دکمه", name: "button_url", widget: "string" }
+          - label: "بنر ۴"
+            name: "banner4"
+            widget: "object"
+            fields:
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "زیرعنوان", name: "subtitle", widget: "string" }
+              - { label: "متن دکمه", name: "button_text", widget: "string" }
+              - { label: "لینک دکمه", name: "button_url", widget: "string" }
+
+  - name: "custom-pages"
+    label: "صفحات سفارشی"
+    folder: "website/custom-pages"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    filter: { field: "layout", value: "custom-page.njk" }
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "آدرس صفحه", name: "permalink", widget: "string", hint: "مثال: /my-page/" }
+      - { label: "زیرعنوان هیرو", name: "hero_subtitle", widget: "string", required: false }
+      - label: "استایل بنر"
+        name: "banner_style"
+        widget: "select"
+        required: false
+        options: ["banner-1", "banner-2", "banner-3", "banner-4"]
+        default: "banner-1"
+      - { label: "محتوا", name: "body", widget: "markdown" }

@@ -1,3 +1,6 @@
+const markdownIt = require("markdown-it");
+const md = new markdownIt({ html: true });
+
 module.exports = function(eleventyConfig) {
   // Ignore root-level markdown files (README, etc.)
   eleventyConfig.ignores.add("README.md");
@@ -54,6 +57,18 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("members/*.md").sort((a, b) => {
       return (a.data.order || 0) - (b.data.order || 0);
     });
+  });
+
+  // Markdownify filter (renders markdown string to HTML)
+  eleventyConfig.addFilter("markdownify", function(content) {
+    return content ? md.render(content) : "";
+  });
+
+  // Custom pages collection
+  eleventyConfig.addCollection("customPages", function(api) {
+    return api.getFilteredByGlob("custom-pages/*.md").sort((a, b) =>
+      (a.data.title || "").localeCompare(b.data.title || "")
+    );
   });
 
   // Persian date filter

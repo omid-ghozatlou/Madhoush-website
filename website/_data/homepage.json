@@ -1,0 +1,34 @@
+{
+  "banner1": {
+    "title": "گربه منتشر شد",
+    "subtitle": "جدیدترین سفر صوتی ما را تجربه کنید",
+    "album_image": "/images/Gorbeh.PNG",
+    "album_image_alt": "گربه - آلبوم جدید",
+    "listen_label": "همین حالا بشنوید",
+    "links": {
+      "spotify": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc&nd=1&dlsi=4acf1b655717464e",
+      "apple_music": "https://music.apple.com/us/album/gorbeh-single/1843789239",
+      "youtube": "https://www.youtube.com/channel/UCC5geqZyMEXYIwZY9lKg5dQ",
+      "soundcloud": "https://soundcloud.com/madhoush",
+      "instagram": "https://www.instagram.com/madhoush.official"
+    }
+  },
+  "banner2": {
+    "title": "مدمگ، تجربه‌ای جدید",
+    "subtitle": "در این سفر به دور دنیا با ما همراه شوید",
+    "button_text": "خرید بلیط",
+    "button_url": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc"
+  },
+  "banner3": {
+    "title": "محصولات اختصاصی",
+    "subtitle": "پوشاک و کالاهای کلکسیونی نسخه محدود",
+    "button_text": "خرید کنید",
+    "button_url": "/store/"
+  },
+  "banner4": {
+    "title": "استودیو مجازی",
+    "subtitle": "وارد فضای خلاقیت دیجیتال ما شوید",
+    "button_text": "کاوش کنید",
+    "button_url": "/media/"
+  }
+}

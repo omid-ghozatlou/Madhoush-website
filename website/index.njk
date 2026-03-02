@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: مدهوش - خانه
+permalink: /index.html
+---
+
+<!-- Banner 1: New Album -->
+<section class="banner banner-1 banner-with-cover">
+    <div class="album-cover-container fade-in">
+        <img src="{{ homepage.banner1.album_image }}" alt="{{ homepage.banner1.album_image_alt }}" class="album-cover">
+    </div>
+    <div class="banner-content fade-in">
+        <h1>{{ homepage.banner1.title }}</h1>
+        <p>{{ homepage.banner1.subtitle }}</p>
+        <p style="margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.1rem;">{{ homepage.banner1.listen_label }}</p>
+        <div class="platform-links">
+            {% if homepage.banner1.links.spotify %}<a href="{{ homepage.banner1.links.spotify }}" target="_blank" class="platform-icon" aria-label="اسپاتیفای"><i class="fab fa-spotify"></i></a>{% endif %}
+            {% if homepage.banner1.links.apple_music %}<a href="{{ homepage.banner1.links.apple_music }}" target="_blank" class="platform-icon" aria-label="اپل موزیک"><i class="fab fa-apple"></i></a>{% endif %}
+            {% if homepage.banner1.links.youtube %}<a href="{{ homepage.banner1.links.youtube }}" target="_blank" class="platform-icon" aria-label="یوتیوب"><i class="fab fa-youtube"></i></a>{% endif %}
+            {% if homepage.banner1.links.soundcloud %}<a href="{{ homepage.banner1.links.soundcloud }}" target="_blank" class="platform-icon" aria-label="ساندکلاود"><i class="fab fa-soundcloud"></i></a>{% endif %}
+            {% if homepage.banner1.links.instagram %}<a href="{{ homepage.banner1.links.instagram }}" target="_blank" class="platform-icon" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>{% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Banner 2 -->
+<section class="banner banner-2">
+    <div class="banner-content fade-in">
+        <h1>{{ homepage.banner2.title }}</h1>
+        <p>{{ homepage.banner2.subtitle }}</p>
+        <a href="{{ homepage.banner2.button_url }}" target="_blank" class="banner-btn">{{ homepage.banner2.button_text }}</a>
+    </div>
+</section>
+
+<!-- Banner 3 -->
+<section class="banner banner-3">
+    <div class="banner-content fade-in">
+        <h1>{{ homepage.banner3.title }}</h1>
+        <p>{{ homepage.banner3.subtitle }}</p>
+        <a href="{{ homepage.banner3.button_url }}" class="banner-btn">{{ homepage.banner3.button_text }}</a>
+    </div>
+</section>
+
+<!-- Banner 4 -->
+<section class="banner banner-4">
+    <div class="banner-content fade-in">
+        <h1>{{ homepage.banner4.title }}</h1>
+        <p>{{ homepage.banner4.subtitle }}</p>
+        <a href="{{ homepage.banner4.button_url }}" class="banner-btn">{{ homepage.banner4.button_text }}</a>
+    </div>
+</section>

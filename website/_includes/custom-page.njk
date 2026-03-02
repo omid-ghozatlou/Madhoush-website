@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+
+<!-- Hero Section -->
+<section class="banner {{ banner_style | default('banner-1') }}" style="height: 50vh;">
+    <div class="banner-content fade-in">
+        <h1>{{ title }}</h1>
+        {% if hero_subtitle %}<p>{{ hero_subtitle }}</p>{% endif %}
+    </div>
+</section>
+
+<!-- Page Content -->
+<section class="content-section">
+    <div class="article-body" style="max-width: 900px; margin: 0 auto;">
+        {{ content | safe }}
+    </div>
+</section>
