@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const navLinksItems = navLinks.querySelectorAll('a');
         navLinksItems.forEach(link => {
             link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 1024) {
                     navLinks.classList.remove('active');
                     const spans = menuToggle.querySelectorAll('span');
                     spans[0].style.transform = 'none';
@@ -496,18 +496,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Mute/Unmute
+    // Mute/Unmute — uses audioPlayer.muted (works on iOS; volume is hardware-only on iPhone)
     volumeBtn.addEventListener('click', () => {
-        if (audioPlayer.volume > 0) {
-            audioPlayer.dataset.previousVolume = audioPlayer.volume;
-            audioPlayer.volume = 0;
+        audioPlayer.muted = !audioPlayer.muted;
+        if (audioPlayer.muted) {
             volumeFill.style.width = '0%';
             updateVolumeIcon(0);
         } else {
-            const previousVolume = parseFloat(audioPlayer.dataset.previousVolume) || 0.7;
-            audioPlayer.volume = previousVolume;
-            volumeFill.style.width = (previousVolume * 100) + '%';
-            updateVolumeIcon(previousVolume);
+            const vol = audioPlayer.volume || 0.7;
+            volumeFill.style.width = (vol * 100) + '%';
+            updateVolumeIcon(vol);
         }
     });
 

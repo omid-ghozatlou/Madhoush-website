@@ -584,8 +584,8 @@ footer p {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  /* Responsive logos for mobile */
+@media (max-width: 1024px) {
+  /* Responsive logos for mobile/tablet */
   .logo-left,
   .logo-right {
     height: 35px;
