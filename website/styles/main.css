@@ -1,7 +1,6 @@
 /* Gorillaz-Inspired Website Styles - Persian/RTL Version */
 
-/* Import Persian Font - Vazir */
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+/* Vazir font is loaded asynchronously via <link> in base.njk */
 
 :root {
   --primary-bg: #1a0f0f;  /* background color */
