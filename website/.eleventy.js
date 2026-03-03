@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("music");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("google5881e7d2cf4b08b4.html");
 
   // Pass through existing HTML files unchanged
   eleventyConfig.addPassthroughCopy("*.html");
