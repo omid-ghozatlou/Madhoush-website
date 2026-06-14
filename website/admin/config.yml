@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: omid-ghozatlou/Madhoush-website
   branch: main
-
-# local_backend: true
+  base_url: https://curious-cranachan-ce0de9.netlify.app
+  auth_endpoint: .netlify/functions/auth
 
 media_folder: "website/images/uploads"
 public_folder: "/images/uploads"
