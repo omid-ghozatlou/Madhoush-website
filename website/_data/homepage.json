@@ -1,10 +1,10 @@
 {
   "banner1": {
-    "title": "گربه منتشر شد",
-    "subtitle": "جدیدترین سفر صوتی ما را تجربه کنید",
-    "album_image": "/images/Gorbeh.PNG",
-    "album_image_alt": "گربه - آلبوم جدید",
-    "listen_label": "همین حالا بشنوید",
+    "title": "لجن منتشر شد...",
+    "subtitle": "می‌تونید از همین جا بشنویدش",
+    "album_image": "/images/uploads/img_3184.jpg",
+    "album_image_alt": "لجن",
+    "listen_label": "همین حالا بشنوید...",
     "links": {
       "spotify": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc&nd=1&dlsi=4acf1b655717464e",
       "apple_music": "https://music.apple.com/us/album/gorbeh-single/1843789239",
