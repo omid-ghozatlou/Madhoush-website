@@ -1,6 +1,25 @@
 {
   "tracks": [
-    { "title": "گربه",  "artist": "مدهوش", "album_art": "/images/Gorbeh.PNG",    "src": "/music/Gorbeh.mp3",   "duration": "4:55" },
-    { "title": "سفینه", "artist": "مدهوش", "album_art": "/images/Safineh_4.PNG", "src": "/music/Safineh.mp3",  "duration": "4:07" }
+    {
+      "title": "لجن",
+      "artist": "مدهوش",
+      "album_art": "/images/uploads/img_3184.jpg",
+      "src": "/music/madhoush-lajan.mp3",
+      "duration": "2:11"
+    },
+    {
+      "title": "گربه",
+      "artist": "مدهوش",
+      "album_art": "/images/Gorbeh.PNG",
+      "src": "/music/Gorbeh.mp3",
+      "duration": "4:55"
+    },
+    {
+      "title": "سفینه",
+      "artist": "مدهوش",
+      "album_art": "/images/Safineh_4.PNG",
+      "src": "/music/Safineh.mp3",
+      "duration": "4:07"
+    }
   ]
 }
