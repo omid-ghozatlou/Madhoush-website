@@ -18,6 +18,8 @@ permalink: /store/
 <!-- Store Profiles -->
 <div class="store-profiles">
 
+<p>Profiles: {{ collections.storeProfiles | length }}</p>
+
 {% for profile in collections.storeProfiles %}
 
 <a href="{{ profile.url }}" class="store-profile">
