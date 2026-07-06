@@ -1448,16 +1448,21 @@ footer p {
 
 /* About story rendered from markdown */
 .about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }
-
 /* Store Profiles */
 
-.store-profile{
+.store-profiles-wrapper{
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-decoration:none;
-    color:#fff;
-    min-width:95px;
+    justify-content:flex-start;
+    direction:ltr;      /* می‌برد سمت چپ */
+    margin-bottom:25px;
+}
+
+.store-profiles{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    width:auto;
+    max-width:500px;
 }
 
 .store-profile{
@@ -1467,6 +1472,7 @@ footer p {
     min-width:90px;
     text-decoration:none;
     color:inherit;
+    direction:rtl;
 }
 
 .store-profile-avatar{
@@ -1476,7 +1482,6 @@ footer p {
     max-width:74px;
     min-height:74px;
     max-height:74px;
-
     display:block;
     object-fit:cover;
     border-radius:50%;
