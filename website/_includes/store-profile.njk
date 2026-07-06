@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+
+<section class="container" style="padding:40px 0;">
+
+  {% if thumbnail %}
+    <img src="{{ thumbnail }}"
+         alt="{{ title }}"
+         style="width:140px;height:140px;border-radius:50%;object-fit:cover;">
+  {% endif %}
+
+  <h1>{{ title }}</h1>
+
+  {% if description %}
+    <p>{{ description }}</p>
+  {% endif %}
+
+  <hr>
+
+  <div>
+    {{ content | safe }}
+  </div>
+
+</section>
