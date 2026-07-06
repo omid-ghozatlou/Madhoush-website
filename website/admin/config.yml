@@ -67,18 +67,9 @@ collections:
     extension: "md"
     fields:
       - { label: "عنوان محصول", name: "title", widget: "string" }
-      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "تاریخ انتشار", name: "date", widget: "datetime" }
       - { label: "تصویر محصول", name: "thumbnail", widget: "image", required: false }
       - { label: "قیمت", name: "price", widget: "string" }
-      
-      - label: "دسته‌بندی"
-        name: "category"
-        widget: "relation"
-        collection: "store-categories"
-        search_fields: ["title"]
-        value_field: "slug"
-        display_fields: ["title"]
-        required: true
 
       - label: "پروفایل فروشگاه"
         name: "store_profile"
@@ -88,10 +79,19 @@ collections:
         value_field: "slug"
         display_fields: ["title"]
         required: true
-        
-      - { label: "سازننده ی محصول", name: "book_author", widget: "string", required: false }
+
+      - label: "دسته‌بندی"
+        name: "category"
+        widget: "relation"
+        collection: "store-categories"
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+        required: true
+
+      - { label: "برند / سازنده", name: "creator", widget: "string", required: false }
       - { label: "لینک خرید", name: "buy_link", widget: "string", required: false }
-      - { label: "توضیحات", name: "description", widget: "text" }
+      - { label: "توضیحات کوتاه", name: "description", widget: "text" }
       - { label: "معرفی محصول", name: "body", widget: "markdown" }
 
   - name: "madmag"
