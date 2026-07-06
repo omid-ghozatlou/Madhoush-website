@@ -2,8 +2,8 @@ const http = require('http');
 const https = require('https');
 const url = require('url');
 
-const CLIENT_ID = 'Ov23liuhqmZe9wTFsEaM';
-const CLIENT_SECRET = '001d2be50ba76ab0e87bfa62b44bdc298d6d42b9';
+const CLIENT_ID = process.env.OAUTH_CLIENT_ID;
+const CLIENT_SECRET = process.env.OAUTH_CLIENT_SECRET;
 
 const server = http.createServer((req, res) => {
   const parsed = url.parse(req.url, true);

@@ -1,5 +1,5 @@
 exports.handler = async () => {
-  const CLIENT_ID = 'Ov23liuhqmZe9wTFsEaM';
+  const CLIENT_ID = process.env.OAUTH_CLIENT_ID;
   return {
     statusCode: 302,
     headers: {
