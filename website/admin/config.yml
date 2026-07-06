@@ -30,20 +30,6 @@ collections:
       - { label: "خلاصه", name: "description", widget: "text", hint: "خلاصه‌ای ۲-۳ خطی که در لیست مقالات نمایش داده می‌شود" }
       - { label: "متن", name: "body", widget: "markdown" }
 
-
-  - name: "store-categories"
-    label: "دسته‌بندی فروشگاه"
-    folder: "website/store-categories"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    fields:
-      - { label: "نام دسته", name: "title", widget: "string" }
-      - { label: "اسلاگ", name: "slug", widget: "string" }
-      - { label: "تصویر دسته", name: "thumbnail", widget: "image", required: false }
-      - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
-      - { label: "توضیح", name: "description", widget: "text", required: false }
-
   - name: "store-profiles"
     label: "پروفایل فروشگاه"
     folder: "website/store-profiles"
@@ -58,6 +44,21 @@ collections:
       - { label: "توضیحات", name: "description", widget: "text", required: false }
       - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
 
+
+  - name: "store-categories"
+    label: "دسته‌بندی فروشگاه"
+    folder: "website/store-categories"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "نام دسته", name: "title", widget: "string" }
+      - { label: "اسلاگ", name: "slug", widget: "string" }
+      - { label: "تصویر دسته", name: "thumbnail", widget: "image", required: false }
+      - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
+      - { label: "توضیح", name: "description", widget: "text", required: false }
+
+
   - name: "store-items"
     label: "فروشگاه"
     folder: "website/store-items"
@@ -65,9 +66,9 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     fields:
-      - { label: "عنوان کتاب", name: "title", widget: "string" }
+      - { label: "عنوان محصول", name: "title", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
-      - { label: "تصویر جلد", name: "thumbnail", widget: "image", required: false }
+      - { label: "تصویر محصول", name: "thumbnail", widget: "image", required: false }
       - { label: "قیمت", name: "price", widget: "string" }
       
       - label: "دسته‌بندی"
@@ -88,10 +89,10 @@ collections:
         display_fields: ["title"]
         required: true
         
-      - { label: "نویسنده کتاب", name: "book_author", widget: "string", required: false }
+      - { label: "سازننده ی محصول", name: "book_author", widget: "string", required: false }
       - { label: "لینک خرید", name: "buy_link", widget: "string", required: false }
-      - { label: "خلاصه", name: "description", widget: "text" }
-      - { label: "معرفی کتاب", name: "body", widget: "markdown" }
+      - { label: "توضیحات", name: "description", widget: "text" }
+      - { label: "معرفی محصول", name: "body", widget: "markdown" }
 
   - name: "madmag"
     label: "مدمگ"
