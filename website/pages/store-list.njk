@@ -15,6 +15,9 @@ permalink: /store/
 <section class="content-section" style="max-width: 1200px; margin: 0 auto;">
 
 <!-- Store Profiles -->
+<h2 class="store-section-title">
+    محصولات آرتیست‌ها
+</h2>
 <div class="store-profiles-wrapper">
     <div class="store-profiles">
         {% for profile in collections.storeProfiles %}
@@ -33,6 +36,10 @@ permalink: /store/
 
 
 <!-- Store Categories -->
+
+<h2 class="store-section-title">
+    دسته‌بندی‌ها
+</h2>
 
 <div style="margin-bottom:60px;">
 
@@ -82,6 +89,13 @@ permalink: /store/
     </div>
 
 </div>
+
+<!-- Store Items -->
+
+<h2 class="store-section-title">
+    محصولات
+</h2>
+
     <div class="grid">
         {% for item in collections.storeItems %}
         <a href="{{ item.url }}" class="card fade-in" style="text-decoration: none; color: inherit;">
