@@ -15,7 +15,7 @@ collections:
     label: "مقالات"
     folder: "website/articles"
     create: true
-    slug: "slug"
+    slug: "{{slug}}"
     extension: "md"
     fields:
       - { label: "عنوان", name: "title", widget: "string" }
