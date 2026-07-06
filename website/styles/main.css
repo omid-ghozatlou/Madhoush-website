@@ -1450,26 +1450,21 @@ footer p {
 .about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }
 /* Store Profiles */
 
-.store-profiles-wrapper{
-    width:100%;
-    margin-bottom:25px;
-}
-
 .store-profiles{
     display:flex;
-    justify-content:flex-end;   /* از سمت راست شروع شود */
-    align-items:flex-start;
+    flex-direction:row-reverse;
+    justify-content:flex-start;
     gap:18px;
-    width:100%;
     overflow-x:auto;
-    direction:rtl;
+    width:100%;
+    padding-bottom:10px;
 }
 
 .store-profile{
-    flex:0 0 auto;
     display:flex;
     flex-direction:column;
     align-items:center;
+    flex:0 0 auto;
     text-decoration:none;
     color:inherit;
 }
@@ -1477,27 +1472,14 @@ footer p {
 .store-profile-avatar{
     width:74px;
     height:74px;
-    object-fit:cover;
     border-radius:50%;
+    object-fit:cover;
     border:3px solid var(--accent-color);
-    transition:.25s;
-}
-
-.store-profile-avatar:hover{
-    transform:scale(1.08);
-}
-
-.store-profile span{
-    font-size:.9rem;
-    text-align:center;
 }
 
 .store-section-title{
-    font-size:1.7rem;
-    color:var(--accent-color);
-    margin:35px 0 18px;
-    font-weight:700;
     text-align:right;
+    margin:35px 0 18px;
     border-right:4px solid var(--accent-secondary);
     padding-right:12px;
 }
