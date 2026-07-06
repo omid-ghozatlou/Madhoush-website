@@ -1448,3 +1448,36 @@ footer p {
 
 /* About story rendered from markdown */
 .about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }
+
+/* Store Profiles */
+
+.store-profiles{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    margin-bottom:32px;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+
+.store-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:90px;
+    text-decoration:none;
+    color:inherit;
+}
+
+.store-profile-avatar{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:8px;
+}
+
+.store-profile span{
+    font-size:.9rem;
+    text-align:center;
+}
