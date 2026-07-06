@@ -1,0 +1,5 @@
+{
+  "layout": "store-category.njk",
+  "permalink": "/store/category/{{ slug }}/",
+  "tags": "storeCategories"
+}
