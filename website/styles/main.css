@@ -1498,3 +1498,13 @@ footer p {
     font-size:.9rem;
     text-align:center;
 }
+
+.store-section-title{
+    font-size:1.7rem;
+    color:var(--accent-color);
+    margin:35px 0 18px;
+    font-weight:700;
+    text-align:right;
+    border-right:4px solid var(--accent-secondary);
+    padding-right:12px;
+}
