@@ -18,20 +18,20 @@ permalink: /store/
 <h2 class="store-section-title">
     آرتیست‌ها
 </h2>
-<div class="store-profiles-wrapper">
-    <div class="store-profiles">
-        {% for profile in collections.storeProfiles %}
-        <a href="{{ profile.url }}" class="store-profile">
-            {% if profile.data.avatar %}
+
+<div class="store-profiles">
+    {% for profile in collections.storeProfiles %}
+    <a href="{{ profile.url }}" class="store-profile">
+        {% if profile.data.avatar %}
         <img
             src="{{ profile.data.avatar }}"
             alt="{{ profile.data.title }}"
             class="store-profile-avatar">
         {% endif %}
-            <span>{{ profile.data.title }}</span>
-        </a>
-        {% endfor %}
-    </div>
+        <span>{{ profile.data.title }}</span>
+    </a>
+    {% endfor %}
+</div>
 </div>
 
 
