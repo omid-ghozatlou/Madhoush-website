@@ -1457,8 +1457,7 @@ footer p {
 
 .store-profiles{
     display:flex;
-    flex-direction:row-reverse; /* از راست شروع شود */
-    justify-content:flex-start;
+    justify-content:flex-end;   /* از سمت راست شروع شود */
     align-items:flex-start;
     gap:18px;
     width:100%;
@@ -1467,13 +1466,12 @@ footer p {
 }
 
 .store-profile{
+    flex:0 0 auto;
     display:flex;
     flex-direction:column;
     align-items:center;
     text-decoration:none;
     color:inherit;
-    min-width:90px;
-    flex:0 0 auto;
 }
 
 .store-profile-avatar{
