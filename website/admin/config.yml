@@ -31,7 +31,7 @@ collections:
       - { label: "متن", name: "body", widget: "markdown" }
 
   - name: "store-profiles"
-    label: "پروفایل فروشگاه"
+    label: "👤 پروفایل فروشگاه"
     folder: "website/store-profiles"
     create: true
     slug: "{{slug}}"
@@ -46,7 +46,7 @@ collections:
 
 
   - name: "store-categories"
-    label: "دسته‌بندی فروشگاه"
+    label: "🏷️ دسته‌بندی فروشگاه"
     folder: "website/store-categories"
     create: true
     slug: "{{slug}}"
@@ -60,7 +60,7 @@ collections:
 
 
   - name: "store-items"
-    label: "فروشگاه"
+    label: "📦 محصولات"
     folder: "website/store-items"
     create: true
     slug: "{{slug}}"
