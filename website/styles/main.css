@@ -1451,13 +1451,13 @@ footer p {
 
 /* Store Profiles */
 
-.store-profiles{
+.store-profile{
     display:flex;
-    gap:18px;
-    overflow-x:auto;
-    margin-bottom:32px;
-    justify-content:flex-start;
-    align-items:flex-start;
+    flex-direction:column;
+    align-items:center;
+    text-decoration:none;
+    color:#fff;
+    min-width:95px;
 }
 
 .store-profile{
@@ -1470,11 +1470,16 @@ footer p {
 }
 
 .store-profile-avatar{
-    width:72px;
-    height:72px;
+    width:74px;
+    height:74px;
     border-radius:50%;
     object-fit:cover;
-    margin-bottom:8px;
+    border:3px solid var(--accent-color);
+    transition:.25s;
+}
+
+.store-profile-avatar:hover{
+    transform:scale(1.08);
 }
 
 .store-profile span{
