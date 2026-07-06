@@ -2,24 +2,52 @@
 layout: base.njk
 ---
 
-<section class="container" style="padding:40px 0;">
+<section class="content-section" style="max-width:1200px;margin:auto;">
 
-  {% if thumbnail %}
-    <img src="{{ thumbnail }}"
-         alt="{{ title }}"
-         style="width:140px;height:140px;border-radius:50%;object-fit:cover;">
-  {% endif %}
+{% if avatar %}
+<img
+    src="{{ avatar }}"
+    alt="{{ title }}"
+    class="store-profile-avatar"
+    style="width:120px;height:120px;margin-bottom:20px;">
+{% endif %}
 
-  <h1>{{ title }}</h1>
+<h1>{{ title }}</h1>
 
-  {% if description %}
-    <p>{{ description }}</p>
-  {% endif %}
+{% if description %}
+<p>{{ description }}</p>
+{% endif %}
 
-  <hr>
+<hr style="margin:30px 0;">
 
-  <div>
-    {{ content | safe }}
-  </div>
+<h2>محصولات</h2>
+
+<div class="grid">
+
+{% for item in collections.storeItems %}
+    {% if item.data.store_profile == slug %}
+
+    <a href="{{ item.url }}" class="card" style="text-decoration:none;color:inherit;">
+
+        {% if item.data.thumbnail %}
+        <img src="{{ item.data.thumbnail }}" class="gallery-image">
+        {% endif %}
+
+        <h3>{{ item.data.title }}</h3>
+
+        {% if item.data.price %}
+        <p>{{ item.data.price }}</p>
+        {% endif %}
+
+        {% if item.data.description %}
+        <p>{{ item.data.description }}</p>
+        {% endif %}
+
+    </a>
+
+    {% endif %}
+{% endfor %}
+
+</div>
 
 </section>
