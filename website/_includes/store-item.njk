@@ -14,6 +14,37 @@ layout: base.njk
         {% if book_author %}
         <p style="color: var(--accent-color); margin-top: 0.5rem;">{{ book_author }}</p>
         {% endif %}
+{% if category %}
+
+{% set currentCategory = collections.storeCategories
+    | selectattr("data.slug", "equalto", category)
+    | first %}
+
+<div style="margin-top:1rem;">
+
+    <a
+        href="/store/category/{{ category }}/"
+        style="
+            display:inline-block;
+            padding:8px 18px;
+            border-radius:30px;
+            background:rgba(255,255,255,.12);
+            color:white;
+            text-decoration:none;
+        ">
+
+        📦
+        {% if currentCategory %}
+            {{ currentCategory.data.title }}
+        {% else %}
+            {{ category }}
+        {% endif %}
+
+    </a>
+
+</div>
+
+{% endif %}
         {% if price %}
         <p style="font-size: 1.4rem; color: var(--accent-secondary); margin-top: 1rem;">{{ price }}</p>
         {% endif %}
