@@ -1,5 +1,5 @@
 {
-  "layout": "store-profile.njk",
+  "layout": "store-item.njk",
   "permalink": "/store/profile/{{ page.fileSlug }}/",
   "tags": "storeProfiles"
 }
