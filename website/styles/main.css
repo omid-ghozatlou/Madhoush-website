@@ -1450,25 +1450,30 @@ footer p {
 .about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }
 /* Store Profiles */
 
+.store-profiles-wrapper{
+    width:100%;
+    margin-bottom:25px;
+}
+
 .store-profiles{
     display:flex;
-    flex-direction:row-reverse;
-    justify-content:flex-start;
+    justify-content:flex-end;   /* چسبیده به راست */
+    align-items:flex-start;
     gap:18px;
-    overflow-x:auto;
     width:100%;
-    padding-bottom:10px;
+    overflow-x:auto;
+    direction:ltr;              /* مهم */
 }
 
 .store-profile{
     display:flex;
     flex-direction:column;
     align-items:center;
-    flex:0 0 auto;
     text-decoration:none;
     color:inherit;
+    min-width:90px;
+    flex:0 0 auto;
 }
-
 .store-profile-avatar{
     width:74px;
     height:74px;
