@@ -15,7 +15,7 @@ collections:
     label: "مقالات"
     folder: "website/articles"
     create: true
-    slug: "{{slug}}"
+    slug: "slug"
     extension: "md"
     fields:
       - { label: "عنوان", name: "title", widget: "string" }
@@ -31,18 +31,18 @@ collections:
       - { label: "متن", name: "body", widget: "markdown" }
 
 
-    - name: "store-categories"
-      label: "دسته‌بندی فروشگاه"
-      folder: "website/store-categories"
-      create: true
-      slug: "{{slug}}"
-      extension: "md"
-      fields:
-        - { label: "نام دسته", name: "title", widget: "string" }
-        - { label: "اسلاگ", name: "slug", widget: "string" }
-        - { label: "تصویر دسته", name: "thumbnail", widget: "image", required: false }
-        - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
-        - { label: "توضیح", name: "description", widget: "text", required: false }
+  - name: "store-categories"
+     label: "دسته‌بندی فروشگاه"
+     folder: "website/store-categories"
+     create: true
+     slug: "{{slug}}"
+     extension: "md"
+     fields:
+       - { label: "نام دسته", name: "title", widget: "string" }
+       - { label: "اسلاگ", name: "slug", widget: "string" }
+       - { label: "تصویر دسته", name: "thumbnail", widget: "image", required: false }
+       - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
+       - { label: "توضیح", name: "description", widget: "text", required: false }
 
   - name: "store-items"
     label: "فروشگاه"
@@ -55,6 +55,16 @@ collections:
       - { label: "تاریخ", name: "date", widget: "datetime" }
       - { label: "تصویر جلد", name: "thumbnail", widget: "image", required: false }
       - { label: "قیمت", name: "price", widget: "string" }
+      
+      - label: "دسته‌بندی"
+        name: "category"
+        widget: "relation"
+        collection: "store-categories"
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+        required: true
+        
       - { label: "نویسنده کتاب", name: "book_author", widget: "string", required: false }
       - { label: "لینک خرید", name: "buy_link", widget: "string", required: false }
       - { label: "خلاصه", name: "description", widget: "text" }
