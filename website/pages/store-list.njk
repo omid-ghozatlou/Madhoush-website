@@ -19,12 +19,12 @@ permalink: /store/
     <div class="store-profiles">
         {% for profile in collections.storeProfiles %}
         <a href="{{ profile.url }}" class="store-profile">
-            {% if profile.data.thumbnail %}
-            <img
-                src="{{ profile.data.thumbnail }}"
-                alt="{{ profile.data.title }}"
-                class="store-profile-avatar">
-            {% endif %}
+            {% if profile.data.avatar %}
+        <img
+            src="{{ profile.data.avatar }}"
+            alt="{{ profile.data.title }}"
+            class="store-profile-avatar">
+        {% endif %}
             <span>{{ profile.data.title }}</span>
         </a>
         {% endfor %}
