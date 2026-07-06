@@ -14,6 +14,19 @@ layout: base.njk
         {% if creator %}
         <p style="color: var(--accent-color); margin-top: 0.5rem;">{{ creator }}</p>
         {% endif %}
+{% if store_profile %}
+<p style="margin-top: .75rem;">
+    <strong>پروفایل:</strong>
+    {{ store_profile }}
+</p>
+{% endif %}
+
+{% if category %}
+<p>
+    <strong>دسته‌بندی:</strong>
+    {{ category }}
+</p>
+{% endif %}
 {% if category %}
 
 {% set currentCategory = collections.storeCategories
