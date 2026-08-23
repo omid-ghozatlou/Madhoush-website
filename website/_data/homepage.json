@@ -16,12 +16,12 @@
   "banner2": {
     "title": "مدمگ، تجربه‌ای جدید",
     "subtitle": "در این سفر به دور دنیا با ما همراه شوید",
-    "button_text": "خرید بلیط",
-    "button_url": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc"
+    "button_text": "وارد شوید",
+    "button_url": "https://madhoush.com/madmag/"
   },
   "banner3": {
-    "title": "محصولات اختصاصی",
-    "subtitle": "پوشاک و کالاهای کلکسیونی نسخه محدود",
+    "title": "مد اِستور",
+    "subtitle": "فروشگاه مدهوش",
     "button_text": "خرید کنید",
     "button_url": "/store/"
   },
