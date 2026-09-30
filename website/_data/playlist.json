@@ -1,6 +1,13 @@
 {
   "tracks": [
     {
+      "title": "G0RB3H (Gorbeh EK-Butt-On Mix)",
+      "artist": "مدهوش",
+      "album_art": "/images/uploads/photo_2026-09-30_11-25-54.jpg",
+      "src": "/music/g0rb3h-gorbeh-ek-butt-on-mix-.mp3",
+      "duration": "4:39"
+    },
+    {
       "title": "لجن",
       "artist": "مدهوش",
       "album_art": "/images/uploads/img_3184.jpg",
@@ -20,13 +27,6 @@
       "album_art": "/images/Safineh_4.PNG",
       "src": "/music/Safineh.mp3",
       "duration": "4:07"
-    },
-    {
-      "title": "G0RB3H (Gorbeh EK-Butt-On Mix)",
-      "artist": "مدهوش",
-      "album_art": "/images/uploads/photo_2026-09-30_11-25-54.jpg",
-      "src": "/music/g0rb3h-gorbeh-ek-butt-on-mix-.mp3",
-      "duration": "4:39"
     }
   ]
 }
