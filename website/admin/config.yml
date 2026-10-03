@@ -209,7 +209,7 @@ collections:
               - label: "فایل موسیقی"
                 name: "src"
                 widget: "file"
-                media_folder: "../music"
+                media_folder: "website/music"
                 public_folder: "/music"
                 required: false
               - { label: "مدت زمان", name: "duration", widget: "string", hint: "مثال: 4:55" }
