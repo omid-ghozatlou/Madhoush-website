@@ -1,9 +1,9 @@
 {
   "banner1": {
-    "title": "لجن منتشر شد...",
+    "title": "ریمیکس گربه منتشر شد...",
     "subtitle": "می‌تونید از همین جا بشنویدش",
-    "album_image": "/images/uploads/img_3184.jpg",
-    "album_image_alt": "لجن",
+    "album_image": "/images/uploads/photo_2026-09-30_11-25-54.jpg",
+    "album_image_alt": "G0RB3H (Gorbeh EK-Butt-On Mix) ",
     "listen_label": "همین حالا بشنوید...",
     "links": {
       "spotify": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc&nd=1&dlsi=4acf1b655717464e",
@@ -14,14 +14,14 @@
     }
   },
   "banner2": {
-    "title": "مدمگ، تجربه‌ای جدید",
-    "subtitle": "در این سفر به دور دنیا با ما همراه شوید",
-    "button_text": "خرید بلیط",
-    "button_url": "https://open.spotify.com/track/4hsyS1AnZgYnaOX9MztMc7?si=2a49af96cdda4acc"
+    "title": "کتاب \"چگونه یک قطعه آهنگ بنویسیم؟\" منتشر شد",
+    "subtitle": "How To Write One Song",
+    "button_text": "مرور کتاب",
+    "button_url": "https://madhoush.com/store/%DA%A9%D8%AA%D8%A7%D8%A8-%DA%86%DA%AF%D9%88%D9%86%D9%87-%DB%8C%DA%A9-%D9%82%D8%B7%D8%B9%D9%87-%D8%A2%D9%87%D9%86%DA%AF-%D8%A8%D9%86%D9%88%DB%8C%D8%B3%DB%8C%D9%85%D8%9F/"
   },
   "banner3": {
-    "title": "محصولات اختصاصی",
-    "subtitle": "پوشاک و کالاهای کلکسیونی نسخه محدود",
+    "title": "مد اِستور",
+    "subtitle": "فروشگاه مدهوش",
     "button_text": "خرید کنید",
     "button_url": "/store/"
   },

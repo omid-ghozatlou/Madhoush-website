@@ -11,10 +11,35 @@ permalink: /store/
         <p>{{ page_titles.store.subtitle }}</p>
     </div>
 </section>
-
 <!-- Store Grid -->
 <section class="content-section" style="max-width: 1200px; margin: 0 auto;">
+
+<!-- Store Profiles -->
+<h2 class="store-section-title">
+    آرتیست‌ها
+</h2>
+
+<div class="store-profiles">
+    {% for profile in collections.storeProfiles %}
+    <a href="{{ profile.url }}" class="store-profile">
+        {% if profile.data.avatar %}
+        <img
+            src="{{ profile.data.avatar }}"
+            alt="{{ profile.data.title }}"
+            class="store-profile-avatar">
+        {% endif %}
+        <span>{{ profile.data.title }}</span>
+    </a>
+    {% endfor %}
+</div>
+</div>
+
+
 <!-- Store Categories -->
+
+<h2 class="store-section-title">
+    دسته‌بندی‌ها
+</h2>
 
 <div style="margin-bottom:60px;">
 
@@ -64,6 +89,13 @@ permalink: /store/
     </div>
 
 </div>
+
+<!-- Store Items -->
+
+<h2 class="store-section-title">
+    محصولات
+</h2>
+
     <div class="grid">
         {% for item in collections.storeItems %}
         <a href="{{ item.url }}" class="card fade-in" style="text-decoration: none; color: inherit;">

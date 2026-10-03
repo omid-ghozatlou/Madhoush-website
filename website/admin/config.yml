@@ -30,9 +30,23 @@ collections:
       - { label: "خلاصه", name: "description", widget: "text", hint: "خلاصه‌ای ۲-۳ خطی که در لیست مقالات نمایش داده می‌شود" }
       - { label: "متن", name: "body", widget: "markdown" }
 
+  - name: "store-profiles"
+    label: "👤 پروفایل فروشگاه"
+    folder: "website/store-profiles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "نام", name: "title", widget: "string" }
+      - { label: "اسلاگ", name: "slug", widget: "string" }
+      - { label: "عکس پروفایل", name: "avatar", widget: "image" }
+      - { label: "لیبل", name: "label", widget: "string", required: false }
+      - { label: "توضیحات", name: "description", widget: "text", required: false }
+      - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
+
 
   - name: "store-categories"
-    label: "دسته‌بندی فروشگاه"
+    label: "🏷️ دسته‌بندی فروشگاه"
     folder: "website/store-categories"
     create: true
     slug: "{{slug}}"
@@ -44,18 +58,28 @@ collections:
       - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1 }
       - { label: "توضیح", name: "description", widget: "text", required: false }
 
+
   - name: "store-items"
-    label: "فروشگاه"
+    label: "📦 محصولات"
     folder: "website/store-items"
     create: true
     slug: "{{slug}}"
     extension: "md"
     fields:
-      - { label: "عنوان کتاب", name: "title", widget: "string" }
-      - { label: "تاریخ", name: "date", widget: "datetime" }
-      - { label: "تصویر جلد", name: "thumbnail", widget: "image", required: false }
+      - { label: "عنوان محصول", name: "title", widget: "string" }
+      - { label: "تاریخ انتشار", name: "date", widget: "datetime" }
+      - { label: "تصویر محصول", name: "thumbnail", widget: "image", required: false }
       - { label: "قیمت", name: "price", widget: "string" }
-      
+
+      - label: "پروفایل فروشگاه"
+        name: "store_profile"
+        widget: "relation"
+        collection: "store-profiles"
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+        required: true
+
       - label: "دسته‌بندی"
         name: "category"
         widget: "relation"
@@ -64,11 +88,11 @@ collections:
         value_field: "slug"
         display_fields: ["title"]
         required: true
-        
-      - { label: "نویسنده کتاب", name: "book_author", widget: "string", required: false }
+
+      - { label: "برند / سازنده", name: "creator", widget: "string", required: false }
       - { label: "لینک خرید", name: "buy_link", widget: "string", required: false }
-      - { label: "خلاصه", name: "description", widget: "text" }
-      - { label: "معرفی کتاب", name: "body", widget: "markdown" }
+      - { label: "توضیحات کوتاه", name: "description", widget: "text" }
+      - { label: "معرفی محصول", name: "body", widget: "markdown" }
 
   - name: "madmag"
     label: "مدمگ"

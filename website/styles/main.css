@@ -1448,3 +1448,43 @@ footer p {
 
 /* About story rendered from markdown */
 .about-story p { font-size: 1.2rem; line-height: 2; color: var(--text-secondary); margin-bottom: 2rem; }
+/* Store Profiles */
+
+.store-profiles-wrapper{
+    width:100%;
+    margin-bottom:25px;
+}
+
+.store-profiles{
+    display:flex;
+    justify-content:flex-end;   /* چسبیده به راست */
+    align-items:flex-start;
+    gap:18px;
+    width:100%;
+    overflow-x:auto;
+    direction:ltr;              /* مهم */
+}
+
+.store-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-decoration:none;
+    color:inherit;
+    min-width:90px;
+    flex:0 0 auto;
+}
+.store-profile-avatar{
+    width:74px;
+    height:74px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--accent-color);
+}
+
+.store-section-title{
+    text-align:right;
+    margin:35px 0 18px;
+    border-right:4px solid var(--accent-secondary);
+    padding-right:12px;
+}
