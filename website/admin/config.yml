@@ -213,6 +213,7 @@ collections:
                 public_folder: "/music"
                 required: false
               - { label: "مدت زمان", name: "duration", widget: "string", hint: "مثال: 4:55" }
+              - { label: "غیرفعال (موقتاً از سایت و پلیر برداشته شود)", name: "disabled", widget: "boolean", default: false, required: false, hint: "با فعال کردن این گزینه آهنگ حذف نمی‌شود، فقط در سایت نمایش و پخش نمی‌شود." }
 
       - name: "page-titles"
         label: "عنوان صفحات"
