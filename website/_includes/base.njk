@@ -127,6 +127,9 @@
         <p>&copy; {{ settings.footer_copyright }}</p>
     </footer>
 
+    {% set liveTracks = playlist.tracks | enabledTracks %}
+    {% if liveTracks.length %}
+
     <!-- Music Player -->
     <div class="music-player" id="musicPlayer">
         <div class="player-container">
@@ -198,7 +201,9 @@
     <!-- Hidden Audio Element -->
     <audio id="audioPlayer"></audio>
 
-    <script>window.PLAYLIST = {{ playlist.tracks | dump | safe }};</script>
+    {% endif %}
+
+    <script>window.PLAYLIST = {{ liveTracks | dump | safe }};</script>
     <script defer src="/scripts/main.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
