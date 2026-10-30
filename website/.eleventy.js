@@ -61,6 +61,11 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+    // Drops tracks the admin has temporarily disabled (disabled: true)
+  eleventyConfig.addFilter("enabledTracks", function(tracks) {
+    return (tracks || []).filter(function(t) { return !t.disabled; });
+  });
+
   // Markdownify filter (renders markdown string to HTML)
   eleventyConfig.addFilter("markdownify", function(content) {
     return content ? md.render(content) : "";
